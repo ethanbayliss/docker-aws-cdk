@@ -19,6 +19,7 @@ gitTag:
 	git tag $(TAG)
 	git push origin $(TAG)
 
+# https://github.com/settings/tokens -> put your container token in cr_token file
 push:
 	cat cr_token | docker login ghcr.io -u ethanbayliss --password-stdin
 	docker push $(IMAGE_NAME)
