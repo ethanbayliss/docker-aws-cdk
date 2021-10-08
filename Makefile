@@ -1,6 +1,8 @@
 AWS_CDK_VERSION = 1.126.0
-IMAGE_NAME ?= ethanbayliss/docker-aws-cdk:$(AWS_CDK_VERSION)
+IMAGE_NAME ?= ghcr.io/ethanbayliss/docker-aws-cdk:$(AWS_CDK_VERSION)
 TAG = $(AWS_CDK_VERSION)
+
+SHELL := /bin/bash
 
 build:
 	docker build -t $(IMAGE_NAME) .
@@ -16,3 +18,7 @@ gitTag:
 	-git push origin :refs/tags/$(TAG)
 	git tag $(TAG)
 	git push origin $(TAG)
+
+push:
+	cat cr_token | docker login ghcr.io -u ethanbayliss --password-stdin
+	docker push $(IMAGE_NAME)
