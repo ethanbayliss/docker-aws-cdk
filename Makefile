@@ -15,16 +15,18 @@ test:
 shell:
 	docker run --rm -it -v ~/.aws:/root/.aws -v $(shell pwd):/opt/app $(IMAGE_NAME) bash
 
-commit:
+tag:
 	-git tag --delete $(TAG)
 	-git tag --delete latest
 	-git push --delete origin $(TAG)
 	-git push --delete origin latest
-	-git add Makefile Dockerfile README.md
 	git tag $(TAG) HEAD
 	git tag latest HEAD
 	git push origin latest
 	git push origin $(TAG)
+
+commit:
+	-git add Makefile Dockerfile README.md
 	-git commit -m "$(TAG)"
 	-git push
 
@@ -34,4 +36,4 @@ push:
 	docker tag $(IMAGE_NAME) $(IMAGE):latest
 	docker push $(IMAGE_NAME)
 
-update: commit push
+update: tag commit push
