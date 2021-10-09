@@ -15,11 +15,11 @@ shell:
 	docker run --rm -it -v ~/.aws:/root/.aws -v $(shell pwd):/opt/app $(IMAGE_NAME) bash
 
 commit:
-	-git add Makefile Dockerfile README.md
-	-git commit -m "$(IMAGE_NAME)"
-	-git push
 	-git tag -d $(TAG)
 	-git tag -d latest
+	-git push
+	-git add Makefile Dockerfile README.md
+	-git commit -m "$(IMAGE_NAME)"
 	-git push
 	git tag $(TAG)
 	git tag latest
