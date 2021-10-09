@@ -21,6 +21,7 @@ commit:
 	-git push --delete origin latest
 	git add Makefile Dockerfile README.md
 	git commit -m "$(TAG)"
+	git push
 	git tag $(TAG) HEAD
 	git tag latest HEAD
 	git push origin latest
