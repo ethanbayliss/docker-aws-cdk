@@ -5,6 +5,7 @@ TAG = $(AWS_CDK_VERSION)
 
 SHELL := /bin/bash
 
+
 build:
 	docker build --no-cache --tag $(IMAGE_NAME) .
 
