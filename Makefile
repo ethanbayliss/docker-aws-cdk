@@ -19,10 +19,10 @@ commit:
 	-git tag --delete latest
 	-git push --delete origin $(TAG)
 	-git push --delete origin latest
-	-git add Makefile Dockerfile README.md
-	-git commit -m "$(TAG)"
-	git tag $(TAG)
-	git tag latest
+	git add Makefile Dockerfile README.md
+	git commit -m "$(TAG)"
+	git tag --annotated $(TAG) HEAD -m "$(TAG) Release"
+	git tag HEAD latest
 	git push
 
 # https://github.com/settings/tokens -> put your container token in cr_token file
