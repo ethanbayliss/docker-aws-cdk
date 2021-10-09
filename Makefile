@@ -23,7 +23,8 @@ commit:
 	git commit -m "$(TAG)"
 	git tag $(TAG) HEAD
 	git tag latest HEAD
-	git push
+	git push origin latest
+	git push origin $(TAG)
 
 # https://github.com/settings/tokens -> put your container token in cr_token file
 push:
