@@ -22,7 +22,7 @@ commit:
 	git add Makefile Dockerfile README.md
 	git commit -m "$(TAG)"
 	git tag --annotate $(TAG) HEAD -m "$(TAG) Release"
-	git tag HEAD latest
+	git tag latest HEAD
 	git push
 
 # https://github.com/settings/tokens -> put your container token in cr_token file
