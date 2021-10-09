@@ -20,9 +20,9 @@ commit:
 	-git push --delete origin $(TAG)
 	-git push --delete origin latest
 	-git add Makefile Dockerfile README.md
-	-git commit -m "$(IMAGE_NAME)"
-	git tag $(TAG)
-	git tag latest
+	-git commit -m "$(TAG)"
+	git tag --annotate $(TAG)
+	git tag --annotate latest
 	git push
 
 # https://github.com/settings/tokens -> put your container token in cr_token file
