@@ -15,16 +15,15 @@ shell:
 	docker run --rm -it -v ~/.aws:/root/.aws -v $(shell pwd):/opt/app $(IMAGE_NAME) bash
 
 commit:
-	-git tag -d $(TAG)
-	-git tag -d latest
-	-git push
+	-git tag --delete $(TAG)
+	-git tag --delete latest
+	-git push --delete origin $(TAG)
+	-git push --delete origin latest
 	-git add Makefile Dockerfile README.md
 	-git commit -m "$(IMAGE_NAME)"
-	-git push
 	git tag $(TAG)
 	git tag latest
-	git push origin $(TAG)
-	git push origin latest
+	git push
 
 # https://github.com/settings/tokens -> put your container token in cr_token file
 push:
