@@ -4,22 +4,21 @@ Containerised AWS CDK to ensure consistent local development and simple CD pipel
 ## Usage
 Run as a command using `cdk` as entrypoint:
 
-    docker run --rm --entrypoint cdk contino/aws-cdk --version
+    docker run --rm --entrypoint cdk ghcr.io/ethanbayliss/docker-aws-cdk:latest --version
 
 Run as a shell and mount `.aws` folder and current directory as volumes:
 
-    docker run --rm -it -v ~/.aws:/root/.aws -v $(pwd):/opt/app contino/aws-cdk bash
+    docker run --rm -it -v ~/.aws:/root/.aws -v $(pwd):/opt/app ghcr.io/ethanbayliss/docker-aws-cdk:latest bash
 
 Using docker-compose:
 
     cdk:
-        image: contino/aws-cdk
+        image: ghcr.io/ethanbayliss/docker-aws-cdk:latest
         env_file: .env
         entrypoint: aws
         working_dir: /opt/app
         volumes:
         - ~/.aws:/root/.aws
-        - .:/opt/app:rw
 
 And run `docker-compose run cdk --version`
 
