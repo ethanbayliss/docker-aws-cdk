@@ -7,7 +7,7 @@ SHELL := /bin/bash
 
 
 build:
-	docker build --no-cache --tag $(IMAGE_NAME) .
+	docker build --no-cache --tag $(IMAGE_NAME) --tag $(IMAGE):latest .
 
 test:
 	docker run --rm -it $(IMAGE_NAME) cdk --version
