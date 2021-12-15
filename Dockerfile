@@ -1,4 +1,4 @@
-ARG AWS_CDK_VERSION=1.133.0
+ARG AWS_CDK_VERSION=2.2.0
 FROM node:14-bullseye
 
 RUN apt-get update -y && \

@@ -1,4 +1,4 @@
-AWS_CDK_VERSION = 1.133.0
+AWS_CDK_VERSION = 2.2.0
 IMAGE ?= ghcr.io/ethanbayliss/docker-aws-cdk
 IMAGE_NAME ?= $(IMAGE):$(AWS_CDK_VERSION)
 TAG = $(AWS_CDK_VERSION)
