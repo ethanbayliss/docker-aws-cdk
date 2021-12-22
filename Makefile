@@ -35,5 +35,6 @@ push:
 	cat cr_token | docker login ghcr.io -u ethanbayliss --password-stdin
 	docker tag $(IMAGE_NAME) $(IMAGE):latest
 	docker push $(IMAGE_NAME)
+	docker push $(IMAGE):latest
 
 update: tag commit push
